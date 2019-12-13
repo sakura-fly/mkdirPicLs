@@ -27,10 +27,14 @@ def searchPic(path):
             if re.search(".[png|jpeg|jpg]", f) is not None:
                 midle += "<img src='" + f + "'>"
     print(midle)
-    if not midle.isspace():
-        f = open(path + os.sep + "pic.html", 'w', encoding="UTF-8")
-        f.write(before + midle + after)
-        f.close()
+    if len(midle) > 0:
+        writeHtml(path + os.sep + "pic.html", before + midle + after)
+
+
+def writeHtml(path, content):
+    f = open(path, 'w', encoding="UTF-8")
+    f.write(content)
+    f.close()
 
 
 if __name__ == "__main__":
