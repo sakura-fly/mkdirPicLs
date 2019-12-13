@@ -24,9 +24,8 @@ def searchPic(path):
         if os.path.isdir(path + os.sep + f):
             searchPic(path + os.sep + f)
         else:
-            if re.search(".[png|jpeg|jpg]", f) is not None:
+            if re.search("\.[png|jpeg|jpg]", f) is not None:
                 midle += "<img src='" + f + "'>"
-    print(midle)
     if len(midle) > 0:
         writeHtml(path + os.sep + "pic.html", before + midle + after)
 
